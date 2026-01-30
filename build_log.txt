@@ -1,0 +1,29 @@
+
+> truth-n-dare@1.0.0 build
+> next build
+
+▲ Next.js 16.1.6 (Turbopack)
+
+  Running TypeScript ...
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 1 errors:
+./styles/globals.css
+Error evaluating Node.js code
+Error: It looks like you're trying to use `tailwindcss` directly as a PostCSS plugin. The PostCSS plugin has moved to a separate package, so to continue using Tailwind CSS with PostCSS you'll need to install `@tailwindcss/postcss` and update your PostCSS configuration.
+    [at lt (C:\Users\Asus\Desktop\truth n dare\node_modules\tailwindcss\dist\lib.js:38:1643)]
+    at turbopack:///[turbopack-node]/transforms/postcss.ts:56:14 [C:\Users\Asus\Desktop\truth n dare\.next\build\chunks\[root-of-the-server]__6d51cb5d._.js:165:20]
+    [at <anonymous>]
+    at Module.init (turbopack:///[turbopack-node]/transforms/postcss.ts:43:33) [C:\Users\Asus\Desktop\truth n dare\.next\build\chunks\[root-of-the-server]__6d51cb5d._.js:155:35]
+    at run (turbopack:///[turbopack-node]/ipc/evaluate.ts:77:20) [C:\Users\Asus\Desktop\truth n dare\.next\build\chunks\[root-of-the-server]__44695d76._.js:429:26]
+    [at process.processTicksAndRejections (node:internal/process/task_queues:105:5)]
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.js
+
+
+    at Module.init (turbopack:///[turbopack-node]/transforms/postcss.ts:43:33) [C:\Users\Asus\Desktop\truth n dare\.next\build\chunks\[root-of-the-server]__6d51cb5d._.js:155:35])
+    at run (turbopack:///[turbopack-node]/ipc/evaluate.ts:77:20) [C:\Users\Asus\Desktop\truth n dare\.next\build\chunks\[root-of-the-server]__44695d76._.js:429:26])

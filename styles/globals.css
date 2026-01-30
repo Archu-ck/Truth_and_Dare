@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --color-electric-cyan: #00ffff;
+  --color-cyber-lime: #ccff00;
+  --color-dark-bg: #121212;
+  --color-glass-white: rgba(255, 255, 255, 0.1);
+
+  /* Semantic Colors mapped to CSS Variables */
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-text-main: var(--color-text-main);
+  --color-text-dim: var(--color-text-dim);
+
+  --backdrop-blur-xs: 2px;
+  /* Ensure this is valid in v4 or remove if causing issues */
+}
+
+/* Custom Theme Variables */
+:root {
+  /* Lovely Theme (Default) */
+  --bg-gradient-from: #fff0f5;
+  /* Lavender Blush */
+  --bg-gradient-to: #ffe4e1;
+  /* Misty Rose */
+  --color-primary: #ff4d6d;
+  /* Vibrant Pink/Red */
+  --color-secondary: #ff8fa3;
+  /* Peach/Soft Pink */
+  --color-accent: #c9184a;
+  /* Accent Red */
+  --color-text-main: #590d22;
+  /* Dark Wine */
+  --color-text-dim: #800f2f;
+  /* Dim Wine */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --input-bg: rgba(255, 255, 255, 0.5);
+}
+
+.dark {
+  /* Cyber Theme (Dark Mode) */
+  --bg-gradient-from: #121212;
+  --bg-gradient-to: #000000;
+  --color-primary: #00ffff;
+  /* Electric Cyan */
+  --color-secondary: #ccff00;
+  /* Cyber Lime */
+  --color-accent: #00cccc;
+  /* Cyan Accent */
+  --color-text-main: #ffffff;
+  --color-text-dim: rgba(255, 255, 255, 0.6);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --input-bg: rgba(0, 0, 0, 0.6);
+}
+
+/* Utility Class Mapping via tailwind is implicit with raw CSS variables usage below */
+
+@layer components {
+  .glass-panel {
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    @apply rounded-xl shadow-lg transition-colors duration-300;
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--bg-gradient-from);
+    /* Use background color for contrast on light/dark mode if needed, or white/black explicitly */
+    @apply font-bold py-2 px-6 rounded-lg shadow-lg transition-all transform hover:scale-105;
+  }
+
+  /* Fix text color for btn-primary depending on theme brightness */
+  :root .btn-primary {
+    color: white;
+  }
+
+  .dark .btn-primary {
+    color: black;
+    box-shadow: 0 0 15px var(--color-primary);
+  }
+
+  .btn-secondary {
+    background-color: var(--color-secondary);
+    @apply text-white font-bold py-2 px-6 rounded-lg shadow-lg transition-all transform hover:scale-105;
+  }
+
+  .dark .btn-secondary {
+    color: black;
+    box-shadow: 0 0 15px var(--color-secondary);
+  }
+
+  .input-field {
+    background-color: var(--input-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--color-text-main);
+    @apply w-full rounded-lg p-3 focus:outline-none focus:ring-2 transition-colors;
+  }
+
+  .input-field:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+  }
+
+  /* Text Utilities based on theme */
+  .text-theme-main {
+    color: var(--color-text-main);
+  }
+
+  .text-theme-dim {
+    color: var(--color-text-dim);
+  }
+
+  .text-theme-primary {
+    color: var(--color-primary);
+  }
+
+  .text-theme-secondary {
+    color: var(--color-secondary);
+  }
+}
+
+@layer base {
+  body {
+    background-image: linear-gradient(to bottom right, var(--bg-gradient-from), var(--bg-gradient-to));
+    color: var(--color-text-main);
+    @apply font-sans min-h-screen transition-colors duration-500;
+  }
+}
