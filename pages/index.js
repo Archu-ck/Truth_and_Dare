@@ -81,9 +81,9 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className="mt-8 text-theme-dim font-medium">
+      {/* <footer className="mt-8 text-theme-dim font-medium">
         Made with ❤️ by <span className="text-theme-primary">archis</span>
-      </footer>
+      </footer> */}
     </div>
   );
 }
