@@ -185,7 +185,7 @@ app.prepare().then(() => {
         // Assign Roles (50/50 Chance) to ALL players
         if (room.players.length < 2) return socket.emit('error', 'Need 2 players to start');
 
-        const sharedRole = Math.random() < 0.5 ? 'truth' : 'dare';
+        const sharedRole = Math.random() < 0.8 ? 'truth' : 'dare';
         room.currentRole = sharedRole;
 
         room.players.forEach(p => {
@@ -298,7 +298,7 @@ app.prepare().then(() => {
       room.phase = 'input';
       room.timer = room.turnTimerUsed;
 
-      const sharedRole = room.currentRole === 'truth' ? 'dare' : 'truth';
+      const sharedRole = Math.random() < 0.8 ? 'truth' : 'dare';
       room.currentRole = sharedRole;
 
       room.players.forEach(p => {
